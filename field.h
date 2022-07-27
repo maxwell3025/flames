@@ -10,6 +10,9 @@ typedef struct{
 //initializes a new field with a given width and height
 Field new_field(int width, int height);
 
+//copies data between 2 fields
+void copy(Field a, Field b);
+
 //swaps data in 2 fields if possible
 void swap(Field a, Field b);
 

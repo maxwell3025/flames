@@ -5,8 +5,8 @@
 #include <unistd.h>
 #include <stdbool.h>
 
-#define FILTER_SIZE 128
 //a filter function for dithering
+#define FILTER_SIZE 128
 float bayer(int x, int y)
 {
 	float total = 0;
@@ -89,20 +89,20 @@ int main()
 		//solving
 		for(int dx = -10; dx <= 10; dx++)
 		{
-			set(field_heat, scr_width / 2 + dx, scr_height - 1, 16);
+			set(field_heat, scr_width / 2 + dx, scr_height - 1, 1);
 		}
 		for(int x = 0; x < scr_width; x++)
 		{
 			set(field_heat, x, 0, 0);
 		}
-		solve(field_vx, field_vy, field_vx_temp, field_vy_temp, field_pressure, field_div, field_heat, field_heat_temp, scr_width, scr_height, 0.1);
+		solve(field_vx, field_vy, field_vx_temp, field_vy_temp, field_pressure, field_div, field_heat, field_heat_temp, scr_width, scr_height, 0.01);
 		//screen management
 		refresh();
 		if(getch() != ERR)
 		{
 			break;
 		}
-		usleep(100000);
+		usleep(10000);
 	}
 	endwin();
 	

@@ -14,6 +14,18 @@ Field new_field(int width, int height)
 	return field;
 }
 
+//copies data between 2 fields
+void copy(Field a, Field b)
+{
+	if(a.width == b.width && a.height == b.height)
+	{
+		for(int i = 0; i < a.width * a.height; i++)
+		{
+			b.data[i] = a.data[i];
+		}
+	}
+}
+
 //swaps data in 2 fields if possible
 void swap(Field a, Field b)
 {
